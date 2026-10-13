@@ -1,0 +1,15 @@
+/project_scope
+
+profiles.yml
+
+.user.yml
+
+data/raw/**/*.json
+
+target/
+dbt_packages/
+logs/
+.env
+
+config.py
+

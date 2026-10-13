@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: bronze
+    database: junimo_db
+    schema: bronze
+    tables:
+      - name: crops_stardew_data
+        description: "Raw payload of crops from source stardew-data."
+      - name: crops_stardew_valley_data
+        description: "Raw payload of crops from source stardew-valley-data."
+  - name: silver
+    database: junimo_db
+    schema: silver
+    tables:
+      - name: crops
+        description: "Consolidated Silver table unifying the best crop data from both Bronze sources for Stardew Valley."
+  

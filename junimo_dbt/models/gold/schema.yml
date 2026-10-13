@@ -1,0 +1,96 @@
+version: 2
+
+models:
+  - name: agent_crops
+    description: "Denormalized Gold table focused on ROI (Return on Investment) metrics across multiple artisan equipment (Keg, Preserves Jar, Dehydrator, Bee House) to feed the AI Agent (Junimo Guide)."
+    columns:
+      - name: crop_name
+        description: "Name of the harvested crop item. Primary lookup key for the AI agent."
+        tests:
+          - unique
+          - not_null
+
+      - name: crop_category
+        description: "Category classification of the crop (e.g., Vegetable, Fruit, Flower)."
+
+      - name: seasons_list
+        description: "Comma-separated string list of seasons during which the crop can be grown (e.g., 'Spring, Summer')."
+
+      - name: growth_days
+        description: "Total days required for initial growth."
+
+      - name: raw_sell_price
+        description: "Base selling price of the raw harvested crop in gold (g)."
+
+      # 1. KEG METRICS
+      - name: can_make_wine
+        description: "Boolean flag indicating if the crop can be processed into Wine via Keg."
+
+      - name: wine_sell_price
+        description: "Total sell price of the resulting Wine (Base Price * 3)."
+
+      - name: wine_profit_per_day
+        description: "Calculated daily profit rate (g/day) for processing Wine in a Keg."
+
+      - name: can_make_juice
+        description: "Boolean flag indicating if the crop can be processed into Juice via Keg."
+
+      - name: juice_sell_price
+        description: "Total sell price of the resulting Juice (Base Price * 2.25)."
+
+      - name: juice_profit_per_day
+        description: "Calculated daily profit rate (g/day) for processing Juice in a Keg."
+
+      - name: coffee_sell_price
+        description: "Fixed sell price for 1 cup of Coffee (produced using 5 Coffee Beans in a Keg)."
+
+      - name: coffee_profit_per_day
+        description: "Calculated daily profit rate (g/day) when processing Coffee Beans into Coffee."
+
+      # 2. PRESERVES JAR METRICS
+      - name: can_make_jelly
+        description: "Boolean flag indicating if the crop can be processed into Jelly via Preserves Jar."
+
+      - name: jelly_sell_price
+        description: "Total sell price of the resulting Jelly ((Base Price * 2) + 50)."
+
+      - name: jelly_profit_per_day
+        description: "Calculated daily profit rate (g/day) for processing Jelly in a Preserves Jar."
+
+      - name: can_make_pickles
+        description: "Boolean flag indicating if the crop can be processed into Pickles via Preserves Jar."
+
+      - name: pickles_sell_price
+        description: "Total sell price of the resulting Pickles ((Base Price * 2) + 50)."
+
+      - name: pickles_profit_per_day
+        description: "Calculated daily profit rate (g/day) for processing Pickles in a Preserves Jar."
+
+      # 3. DEHYDRATOR METRICS
+      - name: can_make_dried_fruit
+        description: "Boolean flag indicating if the crop can be processed into Dried Fruit via Dehydrator."
+
+      - name: dried_fruit_sell_price
+        description: "Total sell price of 1 batch of Dried Fruit ((Base Price * 7.5) + 25)."
+
+      - name: dried_fruit_profit_per_day
+        description: "Calculated daily profit rate (g/day) when processing 5 fruits in a Dehydrator."
+
+      - name: can_make_dried_mushrooms
+        description: "Boolean flag indicating if the crop can be processed into Dried Mushrooms via Dehydrator."
+
+      - name: dried_mushrooms_sell_price
+        description: "Total sell price of 1 batch of Dried Mushrooms ((Base Price * 7.5) + 25)."
+
+      - name: dried_mushrooms_profit_per_day
+        description: "Calculated daily profit rate (g/day) when processing 5 mushrooms in a Dehydrator."
+
+      # 4. BEE HOUSE METRICS
+      - name: can_make_honey
+        description: "Boolean flag indicating if the flower influences specific Flower Honey production in a Bee House."
+
+      - name: flower_honey_sell_price
+        description: "Sell price of the specific Flower Honey produced ((Base Price * 2) + 100)."
+
+      - name: honey_profit_per_day
+        description: "Calculated daily profit rate (g/day) for specific Flower Honey production."

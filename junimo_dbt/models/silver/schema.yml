@@ -1,0 +1,101 @@
+version: 2
+
+models:
+  - name: crops
+    description: "Consolidated Silver table unifying the best crop data from both Bronze sources for Stardew Valley."
+    columns:
+      - name: seed_id
+        description: "Primary key and unique identifier for the seed."
+        tests:
+          - unique
+          - not_null
+
+      - name: seed_name
+        description: "Name of the seed associated with the crop."
+
+      - name: harvest_item_id
+        description: "ID of the harvested item produced by the crop."
+
+      - name: harvest_item_name
+        description: "Name of the harvested item (crop name)."
+
+      - name: seasons
+        description: "Array of seasons during which the crop can be grown."
+
+      - name: growth_days
+        description: "Number of days required for the crop to reach its first harvest."
+
+      - name: regrow_days
+        description: "Number of days for the crop to reproduce after the initial harvest (NULL if it does not regrow)."
+
+      - name: crop_sell_price
+        description: "Base selling price of the harvested item in gold (g)."
+
+      - name: seed_sell_price
+        description: "Selling price of the seed itself."
+
+      - name: pierre_price
+        description: "Purchase price of the seed at Pierre's General Store."
+
+      - name: jojamart_price
+        description: "Purchase price of the seed at JojaMart."
+
+      - name: seed_buy_prices
+        description: "JSONB object containing the complete list of buy locations and prices for the seed."
+
+      - name: crop_category
+        description: "Category classification of the crop (e.g., Vegetable, Fruit, Flower)."
+
+      - name: min_harvest
+        description: "Minimum quantity produced per harvest."
+
+      - name: max_harvest
+        description: "Maximum quantity produced per harvest."
+
+      - name: is_trellis
+        description: "Indicates whether the crop requires a trellis structure to grow."
+
+      - name: can_giant
+        description: "Indicates whether the crop has a chance to grow into a giant crop."
+
+      - name: crop_description
+        description: "In-game detailed description of the crop."
+
+      - name: energy_gain
+        description: "Base energy restored when consuming the item."
+
+      - name: health_gain
+        description: "Base health restored when consuming the item."
+
+      - name: farming_xp
+        description: "Farming experience points granted upon harvesting."
+
+      - name: max_quality
+        description: "Maximum quality tier achievable by the crop."
+
+      - name: can_make_wine
+        description: "Indicates if the crop can be processed into Wine using a Keg."
+
+      - name: can_make_honey
+        description: "Indicates if the crop influences the specific type of Honey produced by a Bee House."
+
+      - name: can_make_jelly
+        description: "Indicates if the crop can be processed into Jelly using a Preserves Jar."
+
+      - name: can_make_juice
+        description: "Indicates if the crop can be processed into Juice using a Keg."
+
+      - name: can_make_pickles
+        description: "Indicates if the crop can be processed into Pickles using a Preserves Jar."
+
+      - name: can_make_dried_fruit
+        description: "Indicates if the crop can be processed in a Dehydrator as Dried Fruit."
+
+      - name: can_make_dried_mushrooms
+        description: "Indicates if the crop can be processed in a Dehydrator as Dried Mushrooms."
+
+      - name: crop_harvest_method
+        description: "Harvest method required (e.g., 'Scythe' or manual picking)."
+
+      - name: cc_bundle
+        description: "Name of the Community Center bundle where this item is required."

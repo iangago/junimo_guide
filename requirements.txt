@@ -1,0 +1,13 @@
+# Data Manipulation & File Processing
+pandas>=2.0.0
+pyarrow>=12.0.0
+
+# Database Connectivity (PostgreSQL)
+psycopg2-binary>=2.9.0
+sqlalchemy>=2.0.0
+
+# Environment Variable Management
+python-dotenv>=1.0.0
+
+# Data Transformation & Modeling
+dbt-postgres>=1.5.0
